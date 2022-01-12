@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-container">
     <RandomBox/>
   </div>
 </template>
@@ -13,5 +13,11 @@ export default {
 </script>
 
 <style>
-
+  .home-container {
+    width: 100%;
+   
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
 </style>
