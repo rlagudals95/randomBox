@@ -1,32 +1,32 @@
 <template>
   <div class="card-container">
       <div class="card">  
-        <img class="card-img" :src="this.images[0]" alt="">
+        <img class="card-img" :src="this.randomImages[0]" alt="">
       </div>
       <div class="card">  
-        <img class="card-img" :src="this.images[1]" alt="">
+        <img class="card-img" :src="this.randomImages[1]" alt="">
       </div>
       <div class="card">  
-        <img class="card-img" :src="this.images[2]" alt="">
+        <img class="card-img" :src="this.randomImages[2]" alt="">
       </div>
       <div class="card">  
-        <img class="card-img" :src="this.images[3]" alt="">
+        <img class="card-img" :src="this.randomImages[3]" alt="">
       </div>
       <div class="card">  
-        <img class="card-img upload-img" :src="this.images[4]" alt="">
+        <img class="card-img upload-img" :src="this.myPhoto" alt="">
       </div>
       <div class="card">  
-        <img class="card-img" :src="this.images[5]" alt="">
+        <img class="card-img" :src="this.randomImages[5]" alt="">
       </div>
       <div class="card">  
-        <img class="card-img" :src="this.images[6]" alt="">
+        <img class="card-img" :src="this.randomImages[6]" alt="">
       </div>
       <div class="card">  
-        <img class="card-img" :src="this.images[7]" alt="">
+        <img class="card-img" :src="this.randomImages[7]" alt="">
       </div>
       <div class="card">  
-        <img class="card-img" :src="this.images[8]" alt="">
-      </div>       
+        <img class="card-img" :src="this.randomImages[8]" alt="">
+      </div>    
   </div>
 </template>
 
@@ -36,32 +36,17 @@ import {mapState} from 'vuex'
 export default {
     data (){
         return {
-            photo_list : []
+            photo_list : [],
+            
         }
     },
     methods : {
-        // randomItem (){
-        //     let a = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P']
-        //     let nums = [];
-        //     let rendomNo 
-        //     randomNo = Math.floor(Math.random() * a.length)
-            
-        //     console.log(nums.indexOf(randomNo), '// 겹치는 번호 : ',randomNo);
-        //     if ( nums.indexOf(randomNo) == -1){
-        //         this.photo_list.push(a[randomNo])
-        //         nums.push(randomNo);
-        //     }       
-        //    //return a[Math.floor(Math.random() * a.length)]
-        // },
-        // randomStart (){
-        //     for (let i = 0; photo_list.length < 8 ;i++) {    
-        //         randomItem();
-        //     }
-        // }  
     },
     computed : {
       ...mapState({
-          images : state => state.images
+          images : state => state.images,
+          randomImages : state => state.randomImages,
+          myPhoto : state => state.myPhoto
       })     
     },
 } 
