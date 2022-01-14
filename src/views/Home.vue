@@ -85,7 +85,7 @@ export default {
     align-items: center;
     display: flex;
     justify-content: center;
-  align-items: center;
+    align-items: center;
     width: 24%;
   }
 </style>
