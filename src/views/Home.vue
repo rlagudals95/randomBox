@@ -1,10 +1,14 @@
 <template>
   <div class="home-container">
-    <div class="guide">자신이 잘 생겼다고 생각한다면<br>사진을 올려주세요 :)</div>
+    <!-- <div class="guide">자신이 잘 생겼다고 생각한다면<br>사진을 올려주세요 :)</div> -->
+    <div v-show="!this.isUpload" class="guide">AI 딥러닝 기술로 외모 수준을 분석해드립니다.<br>사진을 올려주세요 :)</div>
     <div class="randombox-container" id="capture" >
       <RandomBox v-show="this.isUpload" />
     </div>
-    <div v-show="this.isUpload" class="x-guide">엑박이 뜨는 사진이 있다면 랜덤 돌리기를 눌러주세요!</div>
+    <div v-show="this.isUpload" class="x-guide">
+      엑박이 뜨는 사진이 있다면 랜덤 돌리기를 눌러주세요!<br />
+      <!-- 본 이미지들은 cco 이미지들로 저작권 의 권리를 포기한 이미지들 입니다. -->
+    </div>
     <div class="btn-container">
       <b-button v-if="this.isUpload" pill @click="this.clickTrigger" class="upload-btn" variant="primary">사진바꾸기</b-button>
       <b-button v-else pill @click="this.clickTrigger" class="upload-btn" variant="primary">사진올리기</b-button>
@@ -98,8 +102,9 @@ export default {
     font-weight: bold;
   } 
   .x-guide {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
     font-size: 8px;
-    opacity: 0.8;
+    opacity: 1;
     margin-top: 10px;
   }
   .btn-container{

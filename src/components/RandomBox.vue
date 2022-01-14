@@ -17,6 +17,9 @@
           <img class="card-img upload-img" :src="this.myPhoto" alt="">
         </div>
         <div class="card">  
+          <img class="card-img" :src="this.randomImages[4]" alt="">
+        </div>
+        <div class="card">  
           <img class="card-img" :src="this.randomImages[5]" alt="">
         </div>
         <div class="card">  
@@ -24,9 +27,6 @@
         </div>
         <div class="card">  
           <img class="card-img" :src="this.randomImages[7]" alt="">
-        </div>
-        <div class="card">  
-          <img class="card-img" :src="this.randomImages[8]" alt="">
         </div>    
     </div>
   </div>

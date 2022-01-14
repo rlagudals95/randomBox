@@ -2,14 +2,15 @@
 <div class="nav-wrap" >
     <b-nav class="nav-up nav-container" >
         <span class="nav-center">
-            <span @click="setMale" class="male">남성</span> 
-            <span @click="setFemale" class="female">여성</span> 
+            <span @click="setMale" v-bind:class="[sex_gb == 'male'? 'male font-up' : 'male']">남성</span> 
+            <span @click="setFemale" v-bind:class="[sex_gb == 'female'? 'female font-up' : 'female']">여성</span> 
             <!-- <div>{{this.sex_gb}}</div>    -->
         </span>
         <!-- <span class="nav-right">
             <b-nav-item >Logout</b-nav-item>
         </span> -->
     </b-nav>
+    <div class="guide">성별을 선택해 주세요</div>
 </div>
 </template>
 <script>
@@ -32,7 +33,8 @@ export default {
     },
     computed : {
       ...mapState({
-          sex_gb : state => state.sex_gb
+          sex_gb : state => state.sex_gb,
+          randomImages : state => state.randomImages
       })     
     },
   
@@ -53,7 +55,8 @@ export default {
     transform: translate3d(0, 0, 0);
     transition: 0.1s all ease-out;
     width: 100%;
-    opacity: 0.85;
+    background-color: white;
+    
 }
 .nav-container {
     padding: 5px 0px;
@@ -74,7 +77,8 @@ export default {
     color: #cb3837;
 }
 .font-up {
-    font-size: 18px;
+    font-size: 20px;
+    /* text-shadow: 1px 1px rgba(0,0,0,0.3); */
 }
 .logo {
     font-weight: bolder;
