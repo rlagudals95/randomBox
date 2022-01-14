@@ -1,50 +1,53 @@
 <template>
-  <div class="card-container">
-      <div class="card">  
-        <img class="card-img" :src="this.randomImages[0]" alt="">
-      </div>
-      <div class="card">  
-        <img class="card-img" :src="this.randomImages[1]" alt="">
-      </div>
-      <div class="card">  
-        <img class="card-img" :src="this.randomImages[2]" alt="">
-      </div>
-      <div class="card">  
-        <img class="card-img" :src="this.randomImages[3]" alt="">
-      </div>
-      <div class="card">  
-        <img class="card-img upload-img" :src="this.myPhoto" alt="">
-      </div>
-      <div class="card">  
-        <img class="card-img" :src="this.randomImages[5]" alt="">
-      </div>
-      <div class="card">  
-        <img class="card-img" :src="this.randomImages[6]" alt="">
-      </div>
-      <div class="card">  
-        <img class="card-img" :src="this.randomImages[7]" alt="">
-      </div>
-      <div class="card">  
-        <img class="card-img" :src="this.randomImages[8]" alt="">
-      </div>    
+  <div class="card-wrap" id="capture2">
+    <div class="card-container">
+        <div class="card">  
+          <img class="card-img" :src="this.randomImages[0]" alt="">
+        </div>
+        <div class="card">  
+          <img class="card-img" :src="this.randomImages[1]" alt="">
+        </div>
+        <div class="card">  
+          <img class="card-img" :src="this.randomImages[2]" alt="">
+        </div>
+        <div class="card">  
+          <img class="card-img" :src="this.randomImages[3]" alt="">
+        </div>
+        <div class="card">  
+          <img class="card-img upload-img" :src="this.myPhoto" alt="">
+        </div>
+        <div class="card">  
+          <img class="card-img" :src="this.randomImages[5]" alt="">
+        </div>
+        <div class="card">  
+          <img class="card-img" :src="this.randomImages[6]" alt="">
+        </div>
+        <div class="card">  
+          <img class="card-img" :src="this.randomImages[7]" alt="">
+        </div>
+        <div class="card">  
+          <img class="card-img" :src="this.randomImages[8]" alt="">
+        </div>    
+    </div>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
     data (){
         return {
             photo_list : [],
-            
+            captureImg : null
         }
     },
     methods : {
+
     },
     computed : {
       ...mapState({
-          images : state => state.images,
+          manImages : state => state.manImages,
           randomImages : state => state.randomImages,
           myPhoto : state => state.myPhoto
       })     
@@ -56,11 +59,9 @@ export default {
     .card-container {    
         display: grid;
         margin: 0px auto;
-        padding: 0px 100px;
         grid-template-columns: 1fr 1fr 1fr ;
         grid-template-rows: auto;
         grid-gap: 10px;
-
         @media (min-width: 1440px) {
         grid-gap: 5px;
         }
@@ -69,14 +70,14 @@ export default {
          
         }
         @media (max-width: 960px) {   
-        grid-template-columns: 1fr 1fr 1fr; 
-        grid-gap: 5px;
-     ;
-        
+          grid-template-columns: 1fr 1fr 1fr; 
+          grid-gap: 5px;
+              
         }
         @media (max-width: 600px) {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 2px;
+          grid-template-columns: 1fr 1fr 1fr;
+      
+          grid-gap: 2px;
         }
     }
 
