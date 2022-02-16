@@ -7,7 +7,7 @@
     </div>
     <div v-show="this.isUpload" class="x-guide">
       엑박이 뜨는 사진이 있다면 랜덤 돌리기를 눌러주세요!<br />
-      <!-- 본 이미지들은 cco 이미지들로 저작권 의 권리를 포기한 이미지들 입니다. -->
+      본 이미지들은 cco 이미지들로 저작권 의 권리를 포기한 이미지들 입니다. 
     </div>
     <div class="btn-container">
       <b-button v-if="this.isUpload" pill @click="this.clickTrigger" class="upload-btn" variant="primary">사진바꾸기</b-button>
