@@ -1,10 +1,14 @@
 <template>
   <div class="home-container">
+    <!-- 이미지 뷰어 -->
+   
+    <ImgViewer v-if="showImage" @close="showImage=false" />
+
     <!-- <div class="guide">자신이 잘 생겼다고 생각한다면<br>사진을 올려주세요 :)</div> -->
     <div v-show="!this.isUpload" class="guide">AI 딥러닝 기술로 외모 수준을 분석해드립니다.<br>사진을 올려주세요 :)</div>
-    <div class="randombox-container" id="capture" >
+    <!-- <div class="randombox-container" id="capture" >
       <RandomBox v-show="this.isUpload" />
-    </div>
+    </div> -->
     <div v-show="this.isUpload" class="x-guide">
       엑박이 뜨는 사진이 있다면 랜덤 돌리기를 눌러주세요!<br />
       본 이미지들은 cco 이미지들로 저작권 의 권리를 포기한 이미지들 입니다. 
@@ -20,17 +24,19 @@
 </template>
 
 <script>
-import RandomBox from '../components/RandomBox.vue';
+//import RandomBox from '../components/RandomBox.vue';
 import {mapState} from 'vuex'
 import * as htmlToImage from 'html-to-image';
+import ImgViewer from '../components/ImgViewer.vue'
 
 export default {
-    components : {RandomBox},
+    components : { ImgViewer},
     data (){
       return {
         myPhoto : null,
         isUpload : false,
-        captureImg : null
+        captureImg : null,
+        showImage: false,
       }
     },
     methods :{
@@ -52,13 +58,13 @@ export default {
           this.$store.commit('SET_PREVIEW', event.target.result );
         }
         this.startRandom ()
-        this.isUpload = true;
+        this.$store.commit('IS_UPLOAD');
+        this.showImage = true;
       },
       clickTrigger (){
         this.$refs.click.click();
       },
       goCapture (){
-        console.log('object')
         htmlToImage.toJpeg(document.getElementById('capture'), { quality: 0.95 })
         .then(function (dataUrl) {
           console.log(dataUrl)

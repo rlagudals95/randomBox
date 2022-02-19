@@ -6,6 +6,7 @@ const IS_RANDOM = "IS_RANDOM";
 const RESET_RANDOM = "RESET_RANDOM";
 const SET_PREVIEW = "SET_PREVIEW";
 const SET_SEX = "SET_SEX";
+const IS_UPLOAD = "IS_UPLOAD";
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     nums: [],
     isRandom: false,
     myPhoto: null,
+    is_upload: false,
     manImages: [
       "https://firebasestorage.googleapis.com/v0/b/image-community-9d16c.appspot.com/o/man%2Fman-ge740dc869_640.jpg?alt=media&token=9980f9df-8ab9-470e-b7c5-7771445858bf",
       "https://firebasestorage.googleapis.com/v0/b/image-community-9d16c.appspot.com/o/man%2FPapers.co-hc30-lee-min-ho-kpop-celebrity-android-medium.jpg?alt=media&token=e69cb483-944c-4431-92ef-8b48069e753e",
@@ -90,6 +92,9 @@ export default new Vuex.Store({
     },
     [SET_SEX](state, payload) {
       state.sex_gb = payload;
+    },
+    [IS_UPLOAD](state) {
+      state.is_upload = !state.is_upload;
     },
   },
   actions: {},
