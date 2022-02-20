@@ -1,7 +1,6 @@
 <template>
-  <div class="home-container">
+  <div  v-bind:class="[this.is_upload ? 'home-container-upload': 'home-container']" >
     <!-- 이미지 뷰어 -->
-   
     <ImgViewer v-if="showImage" @close="showImage=false" />
 
     <!-- <div class="guide">자신이 잘 생겼다고 생각한다면<br>사진을 올려주세요 :)</div> -->
@@ -57,8 +56,8 @@ export default {
         reader.onload = (event) => {
           this.$store.commit('SET_PREVIEW', event.target.result );
         }
-        this.startRandom ()
-        this.$store.commit('IS_UPLOAD');
+        this.startRandom()
+        this.$store.commit('IS_UPLOAD', true);
         this.showImage = true;
       },
       clickTrigger (){
@@ -80,6 +79,7 @@ export default {
           manImages : state => state.manImages,
           randomImages : state => state.randomImages,
           isRandom :  state => state.isRandom,
+          is_upload :  state => state.is_upload,
       })     
     },
     created (){
@@ -92,10 +92,23 @@ export default {
   .home-container {
     margin-top: 30px;
     width: 100%;
+    height: 100%;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
     padding: 0px 10px 30px 10px
+  }
+
+  .home-container-upload {
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
+    padding: 0px 10px 30px 10px;
+   
   }
 
   .guide {
@@ -134,5 +147,10 @@ export default {
     color: white;
     width: 100%;
     font-weight: bold;
+  }
+  .test {
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 </style>

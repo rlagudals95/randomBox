@@ -57,8 +57,11 @@ export default {
 
 <style lang="scss" scoped>
     .card-container {    
+        position:fixed;
         display: grid;
-        margin: 0px auto;
+        top: 27%;
+        padding: 0px 5px;
+        margin: auto auto;
         grid-template-columns: 1fr 1fr 1fr ;
         grid-template-rows: auto;
         grid-gap: 10px;

@@ -9,10 +9,8 @@
       @mousemove="moveImage"
       draggable="false"
     />
-    <div class="randombox-container" id="capture" >
       <RandomBox v-show="this.is_upload" />
-    </div>
-    <!-- <img class="btn-close" src="../assets/icons/close.svg" @click="doClose" /> -->
+    <img class="btn-close" src="../assets/icons/close.svg" @click="doClose" /> 
   </div>
 </template>
 
@@ -129,6 +127,7 @@ export default {
       //const ele = event.target
     },
     doClose() {
+      this.$store.commit('IS_UPLOAD', false)
       this.$emit('close')
     },
   },
@@ -137,23 +136,24 @@ export default {
 
 <style lang="scss" scoped>
 .img-viewer {
+  
+  z-index: 1000;
   width: 100%;
   height: 100%;
-  border: 2px solid #000;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: #000;
-  img.origin {
+  /* img.origin {
     position: absolute;
     -ms-user-select: none;
     -moz-user-select: -moz-none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     user-select: none;
-  }
+  }*/
   img.btn-close {
     display: block;
     width: 40px;
@@ -161,8 +161,9 @@ export default {
     border: 2px solid #000;
     background-color: #fff;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
+    top: 10px;
+    right: 10px;
+    opacity: 0.5;
+  } 
 }
 </style>

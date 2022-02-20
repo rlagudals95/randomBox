@@ -93,8 +93,8 @@ export default new Vuex.Store({
     [SET_SEX](state, payload) {
       state.sex_gb = payload;
     },
-    [IS_UPLOAD](state) {
-      state.is_upload = !state.is_upload;
+    [IS_UPLOAD](state, payload) {
+      state.is_upload = payload;
     },
   },
   actions: {},

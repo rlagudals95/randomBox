@@ -50,7 +50,7 @@ export default {
     margin: 0px auto;
     padding: 8px 20px;
     width: 100%;
-    z-index: 50;
+    z-index: 30;
     font-weight: bold;
     transform: translate3d(0, 0, 0);
     transition: 0.1s all ease-out;
